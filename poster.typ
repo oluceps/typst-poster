@@ -117,9 +117,9 @@
 
   // Configure headings.
   set heading(numbering: "I.A.1.")
-  show heading: it => locate(loc => {
+  show heading: it => context {
     // Find out the final number of the heading counter.
-    let levels = counter(heading).at(loc)
+    let levels = counter(heading).at(here())
     let deepest = if levels != () {
       levels.last()
     } else {
@@ -158,7 +158,7 @@
       }
       _#(it.body):_
     ]
-  })
+  }
 
   // Arranging the logo, title, authors, and department in the header.
   align(center,
